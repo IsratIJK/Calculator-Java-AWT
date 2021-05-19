@@ -99,7 +99,7 @@ class GUICalculator extends Frame implements ActionListener {
 
     GUICalculator m = new GUICalculator();
     m.setTitle("GUI - Calculator");
-    m.setSize(250, 300);
+    m.setSize(300, 350);
     m.setVisible(true);
   }
 }
