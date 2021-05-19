@@ -3,7 +3,7 @@ import java.awt.event.*;
 
 class GUICalculator extends Frame implements ActionListener {
 
-  TextField tfInput;
+  TextField textFieldInput;
   Panel panel;
 
   String btnString[] = { "7", "8", "9", "+", 
@@ -18,12 +18,12 @@ class GUICalculator extends Frame implements ActionListener {
 
     Font f = new Font("Helvetica", Font.BOLD, 20);
 
-    tfInput = new TextField(10);
-    tfInput.setFont(f);
+    textFieldInput = new TextField(10);
+    textFieldInput.setFont(f);
 
     panel = new Panel();
 
-    add(tfInput, "North");
+    add(textFieldInput, "North");
     add(panel, "Center");
 
     panel.setLayout(new GridLayout(4, 4));
@@ -51,23 +51,23 @@ class GUICalculator extends Frame implements ActionListener {
     if (str.equals("+")) {
 
       op = '+';
-      num1 = Integer.parseInt(tfInput.getText());
-      tfInput.setText("");
+      num1 = Integer.parseInt(textFieldInput.getText());
+      textFieldInput.setText("");
     } else if (str.equals("-")) {
       op = '-';
-      num1 = Integer.parseInt(tfInput.getText());
-      tfInput.setText("");
+      num1 = Integer.parseInt(textFieldInput.getText());
+      textFieldInput.setText("");
     } else if (str.equals("*")) {
       op = '*';
-      num1 = Integer.parseInt(tfInput.getText());
-      tfInput.setText("");
+      num1 = Integer.parseInt(textFieldInput.getText());
+      textFieldInput.setText("");
     } else if (str.equals("/")) {
       op = '/';
-      num1 = Integer.parseInt(tfInput.getText());
-      tfInput.setText("");
+      num1 = Integer.parseInt(textFieldInput.getText());
+      textFieldInput.setText("");
     } else if (str.equals("=")) {
 
-      num2 = Integer.parseInt(tfInput.getText());
+      num2 = Integer.parseInt(textFieldInput.getText());
 
       switch (op) {
 
@@ -84,14 +84,14 @@ class GUICalculator extends Frame implements ActionListener {
           result = num1 / num2;
           break;
       }
-      tfInput.setText(result + "");
+      textFieldInput.setText(result + "");
       result = 0;
     } else if (str.equals("C")) {
 
-      tfInput.setText("");
+      textFieldInput.setText("");
       num1 = num2 = result = 0;
     } else {
-      tfInput.setText(tfInput.getText() + str);
+      textFieldInput.setText(textFieldInput.getText() + str);
     }
   }
 
