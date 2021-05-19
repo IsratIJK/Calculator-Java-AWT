@@ -16,7 +16,7 @@ class GUICalculator extends Frame implements ActionListener {
 
   public GUICalculator() {
 
-    Font f = new Font("Helvetica", Font.BOLD, 20);
+    Font f = new Font("Helvetica", Font.PLAIN, 20);
 
     textFieldInput = new TextField(10);
     textFieldInput.setFont(f);
