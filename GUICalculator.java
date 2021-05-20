@@ -9,7 +9,7 @@ class GUICalculator extends Frame implements ActionListener {
   String btnString[] = { "7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "*", "C", "0", "=", "/" };
   Button btn[] = new Button[16];
   int num1 = 0, num2 = 0, result = 0;
-  char op;
+  char operator;
 
   public GUICalculator() {
 
@@ -47,26 +47,26 @@ class GUICalculator extends Frame implements ActionListener {
 
     if (str.equals("+")) {
 
-      op = '+';
+      operator = '+';
       num1 = Integer.parseInt(textFieldInput.getText());
       textFieldInput.setText("");
     } else if (str.equals("-")) {
-      op = '-';
+      operator = '-';
       num1 = Integer.parseInt(textFieldInput.getText());
       textFieldInput.setText("");
     } else if (str.equals("*")) {
-      op = '*';
+      operator = '*';
       num1 = Integer.parseInt(textFieldInput.getText());
       textFieldInput.setText("");
     } else if (str.equals("/")) {
-      op = '/';
+      operator = '/';
       num1 = Integer.parseInt(textFieldInput.getText());
       textFieldInput.setText("");
     } else if (str.equals("=")) {
 
       num2 = Integer.parseInt(textFieldInput.getText());
 
-      switch (op) {
+      switch (operator) {
 
         case '+':
           result = num1 + num2;
