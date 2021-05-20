@@ -6,7 +6,7 @@ class GUICalculator extends Frame implements ActionListener {
   TextField textFieldInput;
   Panel panel;
 
-  String btnString[] = { "7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "*", "C", "0", "=", "/" };
+  String btnString[] = { "7", "8", "9", "+", "4", "5", "6", "—", "1", "2", "3", "*", "AC", "0", "=", "/" };
   Button btn[] = new Button[16];
   int num1 = 0, num2 = 0, result = 0;
   char operator;
@@ -50,8 +50,8 @@ class GUICalculator extends Frame implements ActionListener {
       operator = '+';
       num1 = Integer.parseInt(textFieldInput.getText());
       textFieldInput.setText("");
-    } else if (str.equals("-")) {
-      operator = '-';
+    } else if (str.equals("—")) {
+      operator = '—';
       num1 = Integer.parseInt(textFieldInput.getText());
       textFieldInput.setText("");
     } else if (str.equals("*")) {
@@ -71,7 +71,7 @@ class GUICalculator extends Frame implements ActionListener {
         case '+':
           result = num1 + num2;
           break;
-        case '-':
+        case '—':
           result = num1 - num2;
           break;
         case '*':
@@ -83,7 +83,7 @@ class GUICalculator extends Frame implements ActionListener {
       }
       textFieldInput.setText(result + "");
       result = 0;
-    } else if (str.equals("C")) {
+    } else if (str.equals("AC")) {
 
       textFieldInput.setText("");
       num1 = num2 = result = 0;
@@ -95,7 +95,7 @@ class GUICalculator extends Frame implements ActionListener {
   public static void main(String args[]) {
 
     GUICalculator m = new GUICalculator();
-    m.setTitle("GUI - Calculator");
+    m.setTitle("GUI — Calculator");
     m.setSize(300, 350);
     m.setBackground(Color.PINK);
     m.setForeground(Color.BLACK);
