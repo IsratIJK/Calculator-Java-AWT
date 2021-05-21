@@ -5,12 +5,10 @@ class GUICalculator extends Frame implements ActionListener {
 
   TextField text;
   Panel panel;
-
   String button[] = { "7", "8", "9", "+", "4", "5", "6", "—", "1", "2", "3", "*", "AC", "0", "/", "=" };
   Button btn[] = new Button[16];
-
-  char opt;
   int A = 0, B = 0, output = 0;
+  char opt;
 
   public GUICalculator() {
 
@@ -18,12 +16,9 @@ class GUICalculator extends Frame implements ActionListener {
 
     text = new TextField(10);
     text.setFont(f);
-
     panel = new Panel();
-
     add(text, "North");
     add(panel, "Center");
-
     panel.setLayout(new GridLayout(4, 4));
 
     for (int i = 0; i < 16; i++) {
