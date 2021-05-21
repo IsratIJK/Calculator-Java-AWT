@@ -3,31 +3,32 @@ import java.awt.event.*;
 
 class GUICalculator extends Frame implements ActionListener {
 
-  TextField textFieldInput;
+  TextField text;
   Panel panel;
 
-  String btnString[] = { "7", "8", "9", "+", "4", "5", "6", "—", "1", "2", "3", "*", "AC", "0", "/", "=" };
+  String button[] = { "7", "8", "9", "+", "4", "5", "6", "—", "1", "2", "3", "*", "AC", "0", "/", "=" };
   Button btn[] = new Button[16];
-  int num1 = 0, num2 = 0, result = 0;
-  char operator;
+
+  char opt;
+  int A = 0, B = 0, output = 0;
 
   public GUICalculator() {
 
     Font f = new Font("Helvetica", Font.PLAIN, 20);
 
-    textFieldInput = new TextField(10);
-    textFieldInput.setFont(f);
+    text = new TextField(10);
+    text.setFont(f);
 
     panel = new Panel();
 
-    add(textFieldInput, "North");
+    add(text, "North");
     add(panel, "Center");
 
     panel.setLayout(new GridLayout(4, 4));
 
     for (int i = 0; i < 16; i++) {
 
-      btn[i] = new Button(btnString[i]);
+      btn[i] = new Button(button[i]);
       btn[i].setFont(f);
       btn[i].addActionListener(this);
       panel.add(btn[i]);
@@ -47,48 +48,48 @@ class GUICalculator extends Frame implements ActionListener {
 
     if (str.equals("+")) {
 
-      operator = '+';
-      num1 = Integer.parseInt(textFieldInput.getText());
-      textFieldInput.setText("");
+      opt = '+';
+      A = Integer.parseInt(text.getText());
+      text.setText("");
     } else if (str.equals("—")) {
-      operator = '—';
-      num1 = Integer.parseInt(textFieldInput.getText());
-      textFieldInput.setText("");
+      opt = '—';
+      A = Integer.parseInt(text.getText());
+      text.setText("");
     } else if (str.equals("*")) {
-      operator = '*';
-      num1 = Integer.parseInt(textFieldInput.getText());
-      textFieldInput.setText("");
+      opt = '*';
+      A = Integer.parseInt(text.getText());
+      text.setText("");
     } else if (str.equals("/")) {
-      operator = '/';
-      num1 = Integer.parseInt(textFieldInput.getText());
-      textFieldInput.setText("");
+      opt = '/';
+      A = Integer.parseInt(text.getText());
+      text.setText("");
     } else if (str.equals("=")) {
 
-      num2 = Integer.parseInt(textFieldInput.getText());
+      B = Integer.parseInt(text.getText());
 
-      switch (operator) {
+      switch (opt) {
 
         case '+':
-          result = num1 + num2;
+          output = A + B;
           break;
         case '—':
-          result = num1 - num2;
+          output = A - B;
           break;
         case '*':
-          result = num1 * num2;
+          output = A * B;
           break;
         case '/':
-          result = num1 / num2;
+          output = A / B;
           break;
       }
-      textFieldInput.setText(result + "");
-      result = 0;
+      text.setText(output + "");
+      output = 0;
     } else if (str.equals("AC")) {
 
-      textFieldInput.setText("");
-      num1 = num2 = result = 0;
+      text.setText("");
+      A = B = output = 0;
     } else {
-      textFieldInput.setText(textFieldInput.getText() + str);
+      text.setText(text.getText() + str);
     }
   }
 
